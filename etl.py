@@ -2,12 +2,10 @@ import configparser
 import datetime as dt
 import os
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import udf, col
-from pyspark.sql.functions import year, month, dayofmonth, hour, weekofyear, date_format
-from pyspark.sql.functions import from_unixtime, to_timestamp
-from pyspark.sql.types import MapType, StringType, IntegerType
-from pyspark.sql.functions import monotonically_increasing_id
-
+from pyspark.sql.window import Window
+import pyspark.sql.functions as F
+import pyspark.sql.types as T
+import re
 
 config = configparser.ConfigParser()
 config.read('dl.cfg')
@@ -25,49 +23,88 @@ def create_spark_session():
     spark = SparkSession \
         .builder \
         .config("spark.jars.packages", "org.apache.hadoop:hadoop-aws:2.7.0") \
+        .config("spark.jars.packages","saurfang:spark-sas7bdat:2.0.0-s_2.11")\
+        .enableHiveSupport()\
         .getOrCreate()
     return spark
 
 
 '''
-process_song_data():
-ETL process for the song data and create the songs and artists dimension data.
+process_dimension_data():
+ETL process for the aiports data and cities demographics dimension data.
 Inputs: sparkSesssion, input_data: s3 location, output_data: s3(Ideal) or local or hdfs
 '''
 
-def process_song_data(spark, input_data, output_data):
-    # get filepath to song data file
-    song_data = input_data+'song_data/*/*/*/'
+def process_dimension_data(spark, input_data, output_data):
+    # get filepath to airports data file
+    airports_data = input_data+'AirportsData.parquet'
     
-    # read song data file
-    df = spark.read.json(song_data).dropna(subset=['song_id', 'artist_id'])
-
-    # extract columns to create songs table
-    songs_table = df.select(['song_id', 'title', 'artist_id', 'year', 'duration'])
+    # read aiports data file
+    df_airports = spark.read.parquet(airports_data)
     
-    # write songs table to parquet files partitioned by year and artist
-    songs_table.write.parquet(output_data+'songs', partitionBy=['year', 'artist_id'])
-
-    # extract columns to create artists table
-    artists_table = df.select(['artist_id', 'artist_name', 'artist_location', \
-                             'artist_latitude', 'artist_longitude'])
+    # get filepath to I94_ports
+    I94_ports_data = input_data+'I94_ports.csv'
     
-    # write artists table to parquet files
-    artists_table.write.parquet(output_data+'artists')
-
+    # read I94_ports data file
+    df_apc =  spark.read.options(delimiter=",", header=True) \
+                    .csv(I94_ports_data)
+    
+    # Merge them using the conditions so that I94ports 
+    # location airports are only filtered
+    cond = [df_apc.locality==df_apd.municipalityE, \
+            df_apc.province==df_apd.state, \
+            df_apc.territory==df_apd.country]
+    df_airports_apc = df_apd.join(F.broadcast(df_apc), cond, "inner")
+    
+    # airports table
+    airports_table = df_airports_apc.select('ident', 'type', 'elevation_ft', \
+                                      'continent', 'gps_code', 'iata_code', \
+                                      'local_code', 'coordinates',\
+                                      'nameL', 'municipalityL', 'nameE', \
+                                      'locality', 'province', 'country', 'code')
+    
+    # write airports table to parquet files partitioned by province
+    airports_table.write.parquet(output_data+'airports', partitionBy=['province'])
+    
+    # get filepath to cities demographics data file
+    cities_demo_data = input_data+'us-cities-demographics.csv'
+    
+    # read cities demographics data file
+    df_cd = spark.read.options(delimiter=";", header="true", inferSchema='true')\
+            .csv(cities_demo_data)
+    
+    # Create a new column with race percent by city
+    df_cd = df_cd.withColumn("Race_percent_by_city", F.col("Count")*100/F.col("Total Population"))
+    
+    # Rank the cities for each race
+    df_cd =  df_cd.withColumn("Race_rank_by_city", \
+                    F.dense_rank().over(Window.partitionBy("Race").orderBy(F.desc("Race_percent_by_city"))))
+    
+    # Merge them using the conditions so that I94ports 
+    # location cities are only filtered
+    cond = [df_cd.City==df_apc.locality, df_cd.State==df_apc.province]
+    df_cd_apc = df_cd.join(F.broadcast(df_apc), cond, "inner")
+    
+    # cities_demo_table
+    cities_demo_table = df_cd_apc.select("City", "State", "territory", "Median Age", "Male Population", "Female Population", "Total Population", \
+         "Number of Veterans", "Foreign-born", "Average Household Size", "Race", "Count", "Race_percent_by_city",\
+          "Race_rank_by_city", "code")
+    
+    # write cities_demo_table to parquet files partitioned by state
+    cities_demo_table.write.parquet(output_data+'airports', partitionBy=['state'])
 
 '''
-process_log_data():
-ETL process for the log data and create the users and time dimension data, and songplays fact data.
+process_facts_data():
+ETL process for the I94 immigration fact data.
 Inputs: sparkSesssion, input_data: s3 location, output_data: s3(Ideal) or local or hdfs
 '''
     
-def process_log_data(spark, input_data, output_data):
-    # get filepath to log data file
-    log_data = input_data + 'log_data/*/*/'  # use: 'log_data' on local sample data
+def process_facts_data(spark, input_data, output_data):
+    # get filepath to I94 immigration data file
+    I94_data = input_data
 
-    # read log data file
-    df = spark.read.json(log_data).dropna(subset='userId') 
+    # read I94 immigration data file
+    df_I94 =spark.read.format('com.github.saurfang.sas.spark').load('input_data')
     
     # filter by actions for song plays
     df = df.filter("page='NextSong'")
