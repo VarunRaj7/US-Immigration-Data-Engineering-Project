@@ -35,15 +35,15 @@ ETL process for the aiports data and cities demographics dimension data.
 Inputs: sparkSesssion, input_data: s3 location, output_data: s3(Ideal) or local or hdfs
 '''
 
-def process_dimension_data(spark, input_data, output_data):
+def process_dimension_data(spark, input_bucket, output_data):
     # get filepath to airports data file
-    airports_data = input_data+'AirportsData.parquet'
+    airports_data = input_bucket+'AirportsData.parquet'
     
     # read aiports data file
     df_airports = spark.read.parquet(airports_data)
     
     # get filepath to I94_ports
-    I94_ports_data = input_data+'I94_ports.csv'
+    I94_ports_data = input_bucket+'I94_ports.csv'
     
     # read I94_ports data file
     df_apc =  spark.read.options(delimiter=",", header=True) \
@@ -67,7 +67,7 @@ def process_dimension_data(spark, input_data, output_data):
     airports_table.write.parquet(output_data+'airports', partitionBy=['province'])
     
     # get filepath to cities demographics data file
-    cities_demo_data = input_data+'us-cities-demographics.csv'
+    cities_demo_data = input_bucket+'us-cities-demographics.csv'
     
     # read cities demographics data file
     df_cd = spark.read.options(delimiter=";", header="true", inferSchema='true')\
@@ -99,70 +99,52 @@ ETL process for the I94 immigration fact data.
 Inputs: sparkSesssion, input_data: s3 location, output_data: s3(Ideal) or local or hdfs
 '''
     
-def process_facts_data(spark, input_data, output_data):
+def process_facts_data(spark, input_data, input_bucket, output_data):
     # get filepath to I94 immigration data file
     I94_data = input_data
 
     # read I94 immigration data file
     df_I94 =spark.read.format('com.github.saurfang.sas.spark').load('input_data')
     
-    # filter by actions for song plays
-    df = df.filter("page='NextSong'")
+    # get datetime from arrdate and depdate column value
+    get_date1 = F.udf(lambda x: (dt.datetime(1960, 1, 1).date() + dt.timedelta(x)).isoformat() if x else None, T.StringType())
 
-    # extract columns for users table    
-    users_table = df.select([col('userId').alias('user_id'),\
-                             col('firstName').alias('first_name'),\
-                             col('lastName').alias('last_name'), 'gender', 'level'])
+    df_I94 = df_I94.withColumn('iso_arrdate', get_date1(F.col('arrdate')))
+    df_I94 = df_I94.withColumn('iso_depdate', get_date1(F.col('depdate')))
     
-    # write users table to parquet files
-    users_table.write.parquet(output_data+'users')
-
-    # create timestamp column from original timestamp column
-    df = df.withColumn('tsX', to_timestamp(from_unixtime(df.ts/1000, \
-                                             format='yyyy-MM-dd HH:mm:ss')))
+    # get datetime from duedate column value
+    get_date2 = F.udf(lambda x: x[4:]+'-'+x[:2]+'-'+x[2:4], T.StringType())
     
-    # create datetime column from original timestamp column
-    get_datetime = udf(lambda row: {'year': row.year, \
-                                    'month': row.month,
-                                    'week': row.isocalendar()[1],
-                                    'day': row.day,
-                                    'hour': row.hour,
-                                    'weekday': row.weekday()
-                                   },\
-                   MapType(StringType(), IntegerType()))
-    df =  df.withColumn('dt', get_datetime(df.tsX))
+    # get datetime from duedate column value
+    df_I94 = df_I94.withColumn('iso_duedate', get_date2(F.col('dtaddto')))
     
-    # extract columns to create time table
-    time_table = df.drop_duplicates(subset=['tsX']) \
-                    .select([col('tsX').alias('start_time'), 'dt.hour', 'dt.day', 'dt.week', \
-                              'dt.month', 'dt.year', 'dt.weekday'])
+    # add mode mappings directly to df
+    i94mode = [(1, 'Air'),(2,'Sea'),(3,'Land'),(9,'Not Reported')]
+    i94mode_rdd = spark.sparkContext.parallelize(i94mode).map(lambda x: Row(i94mode=x[0], i94_mode=x[1]))
+    i94mode_df = spark.createDataFrame(i94mode_rdd)
     
-    # write time table to parquet files partitioned by year and month
-    time_table.write.parquet(output_data+'time', partitionBy=['year', 'month'])
+    df_I94 = df_I94.join(F.broadcast(i94mode_df), df_I94.i94mode==i94mode_df.i94mode, 'left')
     
-    song_data = input_data+'song_data/*/*/*/'
+     # add visa mappings directly to df
+    i94visa = [(1, 'Business'),(2,'Pleasure'),(3,'Student')]
+    i94visa_rdd = spark.sparkContext.parallelize(i94visa).map(lambda x: Row(i94visa=x[0], i94_visa=x[1]))
+    i94visa_df = spark.createDataFrame(i94visa_rdd)
     
-    # read in song data to use for songplays table
-    song_df = spark.read.json(song_data).dropna(subset=['song_id', 'artist_id'])
+    df_I94 = df_I94.join(F.broadcast(i94visa_df), df_I94.i94visa==i94visa_df.i94visa, 'left')
     
-    cond = [(song_df.title==df.song), \
-             (song_df.artist_name==df.artist)]
+     # add US state mappings directly to df
+    df_i94addr = spark.read.options(delimiter=",", header=True)\
+                    .csv(input_bucket+"I94_addr.csv")
     
-    df_join = df.join(song_df, cond, 'left')
+    df_I94 = df_I94.join(F.broadcast(df_i94addr), df_I94.i94addr==df_i94addr.i94addr, "left")
     
-    df_join = df_join.withColumn("songplay_id", monotonically_increasing_id() )
+    # I94_table
+    I94_table = df_I94.select('cicid', 'i94yr', 'i94mon', 'i94cit', 'i94res', 'i94port', 'iso_arrdate', 'iso_depdate', 'iso_duedate', \
+                 'i94_visa', 'i94_mode', 'admnum', 'insnum', 'i94addr_US_state', 'airline', 'fltno', 'visatype', 'i94bir', 'gender')
     
-    # extract columns from joined song and log datasets to create songplays table 
-    songplays_table = df_join.select('songplay_id', col('tsX').alias('start_time'), \
-                                     col('userId').alias('user_id'), 'level', 'song_id', \
-                                     'artist_id', col('sessionId').alias('session_id'), \
-                                     col('artist_location').alias('location'), \
-                                     col('userAgent').alias('user_agent'),\
-                                    'dt.year', 'dt.month')
-
-    # write songplays table to parquet files partitioned by year and month
-    songplays_table.write.parquet(output_data+'songplays', partitionBy=['year', 'month'])
-
+    # write I94_table to parquet files partitioned by state
+    cities_demo_table.write.parquet(output_data+'airports', partitionBy=['i94addr_US_state'])
+    
     
 '''
 main():
@@ -172,12 +154,12 @@ The main function.
 def main():
     spark = create_spark_session()
     
-    ## 
-    input_data = "s3a://udacity-dend/" # use: 'data/' on local sample data
-    output_data = "s3://sparkify-datalake-7/" # user: 'DataLake/' on local sample data
+    input_bucket = "s3a://us-immigration-cleaned-data/" 
+    output_data = "s3://us-immigration-dl/" 
+    input_data = "s3a://us-immigration-cleaned-data/i94_apr16_sub.sas7bdat" 
     
-    process_song_data(spark, input_data, output_data)    
-    process_log_data(spark, input_data, output_data)
+    process_song_data(spark, input_bucket, output_data)    
+    process_log_data(spark, input_data, input_bucket, output_data)
 
 
 if __name__ == "__main__":
