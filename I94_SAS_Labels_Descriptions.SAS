@@ -1033,7 +1033,7 @@ value i94addrl
 	'WA'='WASHINGTON'
 	'WI'='WISCONSON'
 	'WY'='WYOMING' 
-	'99'='All Other Codes' ;
+	'99'='All Other Codes'
 
 /* DEPDATE is the Departure Date from the USA. It is a SAS date numeric field that 
    a permament format has not been applied.  Please apply whichever date format 
