@@ -13,7 +13,7 @@
 'ARB'	=	'Oranjestad, Aruba, Neth Antilles  '
 'BAN'	=	'Bangkok, Central Thailand, Thailand      '
 'BEI'	=	'Beica Airport, Beica, Oromia, Ethiopia'
-'PEK'	=	'Beijing Capital International Airport, Beijing, Beijing, Public Republic of China'
+'PEK'	=	'Beijing Capital International Airport, Beijing, Beijing, China'
 'BDA'	=	'Kindley Field, Saint Davis, Bermuda'
 'BOG'	=	'El Dorado Airport, Bogota, Cundinamarca, Colombia'
 'EZE'	=	'Ministro Pistarini International Airport, Buenos Aires, La Plata, Argentina'

@@ -1,0 +1,599 @@
+code,port,locality,province,territory
+CLG,,Calgary,Alberta,Canada
+EDA,,Edmonton,Alberta,Canada
+YHC,,Hakai pass,British Columbia,Canada
+HAL,,Halifax,Nova Scotia,Canada
+MON,,Montreal,Quebec,Canada
+OTT,,Ottawa,Ontario,Canada
+YXE,,Saskatoon,Saskatchewan,Canada
+TOR,,Toronto,Ontario,Canada
+VCV,,Vancouver,British Columbia,Canada
+VIC,,Victoria,British Columbia,Canada
+WIN,,Winnipeg,Manitoba,Canada
+AMS,Amsterdam-Schiphol Airport,Amsterdam,North Holland,Netherlands
+ARB,,Oranjestad,Aruba,Neth Antilles
+BAN,,Bangkok,Central Thailand,Thailand
+BEI,Beica Airport,Beica,Oromia,Ethiopia
+PEK,Beijing Capital International Airport,Beijing,Beijing,China
+BDA,,Kindley Field,Saint Davis,Bermuda
+BOG,El Dorado Airport,Bogota,Cundinamarca,Colombia
+EZE,Ministro Pistarini International Airport,Buenos Aires,La Plata,Argentina
+CUN,,Cancun,Quintana Roo,Mexico
+CRQ,Caravelas Airport,Caravelas,Bahia,Brazil
+MVD,Carrasco International Airport,Ciudad de la Costa,Canelones,Uruguay
+DUB,,Dublin,Leinster,Ireland
+FOU,Fougamou Airport,Fougamou,Ngounie Province,Gabon
+FBA,,Freeport,Grand Bahama,Bahamas
+MTY,Monterrey International Airport,Apodaca,Nuevo Leon,Mexico
+HMO,General Pesqueira Garcia Airport,Hermosillo,Sonora,Mexico
+GCM,,Grand Cayman,George Town,Cayman Island
+GDL,Guadalajara International Airport,Guadalajara,Jalisco,Mexico
+HAM,,Hamilton,,Bermuda
+ICN,,Incheon,Gyeonggi,Seoul Korea
+CND,,Kogalniceanu,Dobruja,Romania
+LAH,Labuha Airport,Labuha,South Halmahera Regency,Indonesia
+DUR,Louis Botha Airport,Durban,KwaZulu-Natal,South Africa
+MAL,Mangole Airport,Mangole,Sula Islands,Indonesia
+MDE,,Medellin,Antioquia,Colombia
+MEX,Benito Juarez International Airport,Mexico City,Mexico City,Mexico
+LHR,Middlesex,London,England,United Kingdom
+NBO,,Nairobi,Nairobi,Kenya
+NAS,,Nassau,,Bahamas
+NCA,,North Caicos,,Turks and Caicos
+PTY,Omar Torrijos,Panama City,Panama,Panama
+SPV,,Jayapura,Papua,New Guinea
+UIO,Quito (Mariscal Sucre) International Airport,Quito,Pichincha,Ecuador
+RIT,,Rome,Lazio,Italy
+SNO,Sakon Nakhon Airport,Mueang Sakon Nakhon,Sakon Nakhon,Thailand
+SLP,San Luis Potosi International Airport,San Luis Potosi,San Luis Potosi,Mexico
+SAN,,San Salvador,San Salvador,El Salvador
+SRO,Santa Ramos Airport,Santa Ramos,Caqueta,Colombia
+GRU,Guarulhos International Airport,Guarulhos,Sao Paulo,Brazil
+SHA,,Shannon,Munster,Ireland
+HIL,,Shillavo,Somali,Ethiopia
+TOK,Torokina Airport,Torokina,Bougainville,New Guinea
+VER,,Veracruz,Veracruz,Mexico
+LGW,,West Sussex,England,United Kingdom
+MAA,,Abu Dhabi,,United Arab Emirates
+SAI,,Saipan,,Northern Mariana Islands
+ALC,,Alcan,Alaska,United States
+ANC,,Anchorage,Alaska,United States
+BAR,Baker AAF,Baker Island,Alaska,United States
+DAC,Daltons Cache,Haines,Alaska,United States
+PIZ,DEW Station,Point Lay,Alaska,United States
+DTH,,Dutch Harbor,Alaska,United States
+EGL,,Eagle,Alaska,United States
+FRB,,Fairbanks,Alaska,United States
+HOM,,Homer,Alaska,United States
+HYD,,Hyder,Alaska,United States
+JUN,,Juneau,Alaska,United States
+5KE,,Ketchikan,Alaska,United States
+KET,,Ketchikan,Alaska,United States
+MOS,Moses Point Intermediate Airport,Moses Point,Alaska,United States
+NIK,,Nikiski,Alaska,United States
+NOM,,Nome,Alaska,United States
+PKC,Poker Creek Border Crossing,Chicken,Alaska,United States
+ORI,,Port Lions,Alaska,United States
+SKA,,Skagway,Alaska,United States
+SNP,,St Paul Island,Alaska,United States
+TKI,,Tokeen,Alaska,United States
+WRA,,Wrangell,Alaska,United States
+HSV,Madison County/Huntsville Airport,Huntsville,Alabama,United States
+MOB,,Mobile,Alabama,United States
+LIA,,Little Rock,Arkansas,United States
+ROG,Rogers Airport,Benton,Arkansas,United States
+DOU,,Douglas,Arizona,United States
+LUK,,Lukeville,Arizona,United States
+MAP,,Mariposa,Arizona,United States
+NAC,,Naco,Arizona,United States
+NOG,,Nogales,Arizona,United States
+PHO,,Phoenix,Arizona,United States
+POR,,Portal,Arizona,United States
+SLU,,San Luis,Arizona,United States
+SAS,,Sasabe,Arizona,United States
+TUC,,Tucson,Arizona,United States
+YUI,,Yuma,Arizona,United States
+AND,,Andrade,California,United States
+BUR,,Burbank,California,United States
+CAL,,Calexico,California,United States
+CAO,,Campo,California,United States
+FRE,,Fresno,California,United States
+ICP,IMPERIAL COUNTY Airport,Imperial,California,United States
+LNB,,Long Beach,California,United States
+LOS,,Los Angeles,California,United States
+BFL,Meadows Field/Bakersfield Airport,Bakersfield,California,United States
+OAK,,Oakland,California,United States
+ONT,,Ontario,California,United States
+OTM,,Otay Mesa,California,United States
+BLT,Pacific Highway Station,Carson,California,United States
+PSP,,Palm Springs,California,United States
+SAC,,Sacramento,California,United States
+SLS,,Salinas,California,United States
+SDP,,San Diego,California,United States
+SFR,,San Francisco,California,United States
+SNJ,,San Jose,California,United States
+SLO,,San Luis Obispo,California,United States
+SLI,,San Luis Obispo,California,United States
+SPC,,San Pedro,California,United States
+SYS,,San Ysidro,California,United States
+SAA,,Santa Ana,California,United States
+STO,,Stockton,California,United States
+TEC,,Tecate,California,United States
+TRV,Travis Air Force Base,Fairfield,California,United States
+APA,ARAPAHOE COUNTY,Arapahoe,Colorado,United States
+ASE,,Aspen,Colorado,United States
+COS,,Colorado Springs,Colorado,United States
+DEN,,Denver,Colorado,United States
+DRO,La Plata - Durango Airport,Durango,Colorado,United States
+BDL,Bradley International Airport,Windsor Locks,Connecticut,United States
+BGC,,Bridgeport,Connecticut,United States
+GRT,,Groton,Connecticut,United States
+HAR,,Hartford,Connecticut,United States
+NWH,,New Haven,Connecticut,United States
+NWL,,New London,Connecticut,United States
+TST,,Newington,Connecticut,United States
+WAS,,Washington,District of Columbia,United States
+DOV,Dover Air Force Base,Dover,Delaware,United States
+DVD,Dover Air Force Base,Dover,Delaware,United States
+WLL,,Wilmington,Delaware,United States
+BOC,,Bocagrande,Florida,United States
+SRQ,Bradenton - Sarasota Airport,Bradenton,Florida,United States
+CAN,,Cape Canaveral,Florida,United States
+DAB,Daytona Beach International Airport,Daytona Beach,Florida,United States
+FRN,,Fernandina,Florida,United States
+FTL,,Fort Lauderdale,Florida,United States
+FMY,,Fort Myers,Florida,United States
+FPF,,Fort Pierce,Florida,United States
+HUR,,Hurlburt Field,Florida,United States
+GNV,J R Alison Muni - Gainesville Airport,Gainesville,Florida,United States
+JAC,,Jacksonville,Florida,United States
+KEY,,Key West,Florida,United States
+LEE,Leesburg Muncipal Airport,Leesburg,Florida,United States
+MLB,,Melbourne,Florida,United States
+MIA,,Miami,Florida,United States
+APF,,Naples,Florida,United States
+OPF,,Opa Locka,Florida,United States
+ORL,,Orlando,Florida,United States
+PAN,,Panama City,Florida,United States
+PEN,,Pensacola,Florida,United States
+PCF,,Port Canaveral,Florida,United States
+PEV,,Port Everglades,Florida,United States
+PSJ,,Port St Joe,Florida,United States
+SFB,,Sanford,Florida,United States
+SGJ,Saint Augustine Airport,Saint Augustine,Florida,United States
+SAU,,Saint Augustine,Florida,United States
+FPR,St Lucie County International Airport,Fort Pierce,Florida,United States
+SPE,,St Petersburg,Florida,United States
+TAM,,Tampa,Florida,United States
+WPB,,West Palm Beach,Florida,United States
+ATL,,Atlanta,Georgia,United States
+BRU,,Brunswick,Georgia,United States
+AGS,Bush Field - Augusta Airport,Augusta,Georgia,United States
+SAV,,Savannah,Georgia,United States
+AGA,,Agana,Guam,United States
+HHW,,Honolulu,Hawaii,United States
+OGG,,Kahului,Hawaii,United States
+KOA,,Keahole-kona,Hawaii,United States
+LIH,,Lihue,Hawaii,United States
+CID,Cedar Rapids - Iowa City Airport,Cedar Rapids,Iowa,United States
+DSM,,Des Moines,Iowa,United States
+BOI,Gowen Field/Boise Air Terminal,Boise,Idaho,United States
+EPI,,Eastport,Idaho,United States
+IDA,Fanning Field/Idaho Falls Airport,Idaho Falls,Idaho,United States
+PTL,,Porthill,Idaho,United States
+SPI,Capital/Springfield Airport,Springfield,Illinois,United States
+CHI,,Chicago,Illinois,United States
+DPA,DUPAGE COUNTY,Chicago/west Chicago,Illinois,United States
+PIA,,Greater Peoria,Illinois,United States
+RFD,,Greater Rockford,Illinois,United States
+UGN,Waukegan Memorial Airport,Waukegan,Illinois,United States
+GAR,,Gary,Indiana,United States
+HMM,,Hammond,Indiana,United States
+INP,,Indianapolis,Indiana,United States
+MRL,,Merrillville,Indiana,United States
+SBN,,South Bend,Indiana,United States
+ICT,Mid Continent/Witchita Airport,Witchita,Kansas,United States
+LEX,Blue Grass Airport,Lexington,Kentucky,United States
+LOU,,Louisville,Kentucky,United States
+BTN,,Baton Rouge,Louisiana,United States
+LKC,,Lake Charles,Louisiana,United States
+LAK,,Lake Charles,Louisiana,United States
+MLU,,Monroe,Louisiana,United States
+MGC,,Morgan City,Louisiana,United States
+NOL,,New Orleans,Louisiana,United States
+BOS,,Boston,Massachusetts,United States
+GLO,,Gloucester,Massachusetts,United States
+BED,Hanscom Field Airport,Bedford,Massachusetts,United States
+LYN,,Lynden,Washington,United States
+ADW,Andrews AFB,Morningside,Maryland,United States
+BAL,,Baltimore,Maryland,United States
+MKG,,Muskegon,Michigan,United States
+PAX,,Patuxent River,Maryland,United States
+BGM,,Bangor,Maine,United States
+BOO,,Boothbay Harbor,Maine,United States
+BWM,,Bridgewater,Maine,United States
+BCK,,Buckport,Maine,United States
+CLS,,Calais,Maine,United States
+CRB,,Caribou,Maine,United States
+COB,,Coburn Gore,Maine,United States
+EST,,Eastcourt,Maine,United States
+EPT,,Eastport Municipal,Maine,United States
+EPM,,Eastport,Maine,United States
+FOR,,Forest City,Maine,United States
+FTF,,Fort Fairfield,Maine,United States
+FTK,,Fort Kent,Maine,United States
+HML,,Hamlin,Maine,United States
+HTM,,Houlton,Maine,United States
+JKM,,Jackman,Maine,United States
+KAL,,Kalispel,Montana,United States
+LIM,,Limestone,Maine,United States
+LUB,,Lubec,Maine,United States
+MAD,,Madawaska,Maine,United States
+POM,,Portland,Maine,United States
+RGM,,Rangeley,Maine,United States
+SBR,,South Brewer,Maine,United States
+SRL,,St Aurelie,Maine,United States
+SPA,,St Pampile,Maine,United States
+VNB,,Van Buren,Maine,United States
+VCB,,Vanceboro,Maine,United States
+AGN,,Algonac,Michigan,United States
+ALP,,Alpena,Michigan,United States
+BCY,,Bay City,Michigan,United States
+DET,,Detroit,Michigan,United States
+GRP,,Grand Rapids,Michigan,United States
+GRO,,Grosse Isle,Michigan,United States
+ISL,,Isle Royale,Michigan,United States
+MRC,,Marine City,Michigan,United States
+MRY,,Marysville,Michigan,United States
+PTK,Oakland County - Pontiac Airport,Pontiac,Michigan,United States
+PHU,,Port Huron,Michigan,United States
+RBT,Roberts Landing,Cheboygan,Michigan,United States
+SAG,,Saginaw,Michigan,United States
+SSM,,Sault Ste Marie,Michigan,United States
+SCL,,St Clair,Michigan,United States
+YIP,,St Clair,Michigan,United States
+BAU,,Baudette,Minnesota,United States
+CAR,Caribou Muncipal Airport,Caribou,Minnesota,United States
+CRA,,Crane Lake,Minnesota,United States
+MIC,Crystal Muncipal Airport,Crystal,Minnesota,United States
+DUL,,Duluth,Minnesota,United States
+ELY,,Ely,Minnesota,United States
+GPM,,Grand Portage,Minnesota,United States
+SVC,Grant County - Silver City Airport,Silver City,Minnesota,United States
+INT,,International Falls,Minnesota,United States
+LAN,,Lancaster,Minnesota,United States
+MSP,,St Paul,Minnesota,United States
+LIN,Northern Silver City Center,Silver City,Minnesota,United States
+NOY,,Noyes,Minnesota,United States
+PIN,,Pine Creek,Minnesota,United States
+48Y,Pinecreek Border Airport,Pinecreek,Minnesota,United States
+RAN,,Rainer,Minnesota,United States
+RST,,Rochester,Minnesota,United States
+ROS,,Roseau,Minnesota,United States
+SPM,,St Paul,Minnesota,United States
+WSB,Warroad International Memorial Airport,Warroad,Minnesota,United States
+WAR,,Warroad,Minnesota,United States
+KAN,,Kansas City,Missouri,United States
+SGF,Springfield-Branson Airport,Springfield,Missouri,United States
+STL,,St Louis,Missouri,United States
+WHI,,Whitetail,Montana,United States
+WHM,Wild Horse Border Crossing,Havre,Montana,United States
+GPT,Biloxi Regional Airport,Biloxi,Mississippi,United States
+GTR,Golden Triangle Lowndes County Airport,Columbus,Mississippi,United States
+GUL,,Gulfport,Mississippi,United States
+PAS,,Pascagoula,Mississippi,United States
+JAN,Thompson Field - Jackson Airport,Jackson,Mississippi,United States
+BIL,,Billings,Montana,United States
+BTM,,Butte,Montana,United States
+CHF,,Chief Mountain,Montana,United States
+CTB,Cut Bank Muncipal Airport,Cut Bank,Montana,United States
+CUT,,Cut Bank,Montana,United States
+DLB,,Del Bonita,Montana,United States
+EUR,,Eureka,Montana,United States
+BZN,Gallatin Field - Bozeman Airport,Bozeman,Montana,United States
+FCA,Glacier International Park Airport,Kalispell,Montana,United States
+GGW,,Glasgow,Montana,United States
+GRE,,Great Falls,Montana,United States
+HVR,,Havre,Montana,United States
+HEL,,Helena,Montana,United States
+LWT,,Lewiston,Montana,United States
+MGM,,Morgan,Montana,United States
+OPH,,Opheim,Montana,United States
+PIE,,Piegan,Montana,United States
+RAY,,Raymond,Montana,United States
+ROO,,Roosville,Montana,United States
+SCO,,Scobey,Montana,United States
+SWE,,Sweetgtass,Montana,United States
+TRL,Trial Creek,Bozeman,Montana,United States
+TUR,,Turner,Montana,United States
+WCM,,Willow Creek,Montana,United States
+CLT,,Charlotte,North Carolina,United States
+FAY,,Fayetteville,North Carolina,United States
+MRH,,Morehead City,North Carolina,United States
+FOP,Morris Fields AAF,Morris Field,North Carolina,United States
+GSO,Piedmont Triad International Airport,Greensboro,North Carolina,United States
+RDU,Raleigh/Durham International Airport,Raleigh,North Carolina,United States
+SSC,Shaw AFB,Sumter,North Carolina,United States
+WIL,,Wilmington,North Carolina,United States
+AMB,,Ambrose,North Dakota,United States
+ANT,,Antler,North Dakota,United States
+CRY,,Carbury,North Dakota,United States
+DNS,,Dunseith,North Dakota,United States
+FAR,,Fargo,North Dakota,United States
+FRT,,Fortuna,North Dakota,United States
+GRF,,Grand Forks,North Dakota,United States
+HNN,,Hannah,North Dakota,United States
+HNS,,Hansboro,North Dakota,United States
+MAI,,Maida,North Dakota,United States
+MND,,Minot,North Dakota,United States
+NEC,,Neche,North Dakota,United States
+NOO,,Noonan,North Dakota,United States
+NRG,,Northgate,North Dakota,United States
+PEM,,Pembina,North Dakota,United States
+SAR,,Sarles,North Dakota,United States
+SHR,,Sherwood,North Dakota,United States
+SJO,,St John,North Dakota,United States
+WAL,,Walhalla,North Dakota,United States
+WHO,,Westhope,North Dakota,United States
+WND,,Williston,North Dakota,United States
+OMA,,Omaha,Nebraska,United States
+LEB,,Lebanon,New Hampshire,United States
+MHT,,Manchester,New Hampshire,United States
+PNH,,Pittsburg,New Hampshire,United States
+PSM,,Portsmouth,New Hampshire,United States
+BYO,,Bayonne,New Jersey,United States
+CNJ,,Camden,New Jersey,United States
+HOB,,Hoboken,New Jersey,United States
+JER,,Jersey City,New Jersey,United States
+WRI,McGuire AFB,Wrightsown,New Jersey,United States
+MMU,,Morristown,New Jersey,United States
+NEW,,Newark,New Jersey,United States
+PER,,Perth Amboy,New Jersey,United States
+ACY,,Atlantic City,New Jersey,United States
+ALA,,Alamagordo,New Mexico,United States
+ABQ,,Albuquerque,New Mexico,United States
+ANP,,Antelope Wells,New Mexico,United States
+CRL,,Carlsbad,New Mexico,United States
+COL,,Columbus,New Mexico,United States
+CDD,,Crane Lake,New Mexico,United States
+DNM,,Deming,New Mexico,United States
+LAS,,Las Cruces,New Mexico,United States
+LOB,,Lordsburg,New Mexico,United States
+RUI,,Ruidoso,New Mexico,United States
+STR,,Santa Teresa,New Mexico,United States
+RNO,Cannon International Airport - Reno/Tahoe,Reno,Nevada,United States
+FLX,Fallon Municpal Airport,Fallon,Nevada,United States
+LVG,,Las Vegas,Nevada,United States
+REN,,Reno,Nevada,United States
+ALB,,Albany,New York,United States
+AXB,,Alexandria Bay,New York,United States
+BUF,,Buffalo,New York,United States
+CNH,Cannon Corners - Covey Hill Border Crossing,Mooers,New York,United States
+CAP,,Cape Vincent,New York,United States
+CHM,,Champlain,New York,United States
+CHT,,Chateaugay,New York,United States
+CLA,,Clayton,New York,United States
+FTC,,Fort Covington,New York,United States
+LAG,La Guardia AIRPORT,Queens,New York,United States
+LEW,,Lewiston,New York,United States
+MAS,,Massena,New York,United States
+MAG,McGuire AFB,Trenton,New York,United States
+MOO,,Moores,New York,United States
+MRR,,Morristown,New York,United States
+NYC,,New York,New York,United States
+NIA,,Niagara Falls,New York,United States
+OGD,,Ogdensburg,New York,United States
+OSW,,Oswego,New York,United States
+ELM,Elmira/Corning Regional Airport,Horsehead,New York,United States
+ROC,,Rochester,New York,United States
+ROU,,Rouses Point,New York,United States
+SWF,Stewart International Airport,New Windsor,New York,United States
+SYR,,Syracuse,New York,United States
+THO,Thousand Island Bridge,Wellesley Island,New York,United States
+TRO,Trout River Border Crossing,Constable,New York,United States
+WAT,,Watertown,New York,United States
+HPN,Westchester/White Plains Airport,White Plains,New York,United States
+WRB,Whirlpool Bridge,Niagara Falls,New York,United States
+YOU,,Youngstown,New York,United States
+AKR,,Akron,Ohio,United States
+ATB,,Ashtabula,Ohio,United States
+CIN,,Cincinnati,Ohio,United States
+CLE,,Cleveland,Ohio,United States
+CLM,,Columbus,Ohio,United States
+LOR,,Lorain,Ohio,United States
+MBO,,Marble Head,Ohio,United States
+SDY,,Sandusky,Ohio,United States
+TOL,,Toledo,Ohio,United States
+OKC,,Oklahoma City,Oklahoma,United States
+TUL,,Tulsa,Oklahoma,United States
+AST,,Astoria,Oregon,United States
+COO,,Coos Bay,Oregon,United States
+HIO,,Hillsboro,Oregon,United States
+MED,,Medford,Oregon,United States
+NPT,,Newport,Oregon,United States
+POO,,Portland,Oregon,United States
+PUT,,Put-in-bay,Ohio,United States
+RDM,Roberts Field Airport,Redmond,Oregon,United States
+ERI,,Erie,Pennsylvania,United States
+MDT,,Harrisburg,Pennsylvania,United States
+HSB,,Harrisonburg,Pennsylvania,United States
+PHI,,Philadelphia,Pennsylvania,United States
+PIT,,Pittsburg,Pennsylvania,United States
+AGU,,Aguadilla,Puerto Rico,United States
+BQN,Borinquen - Aguadillo Airport,Aguadillo,Puerto Rico,United States
+JCP,Benjamin Rivera Noriega Airport,Culebra,Puerto Rico,United States
+ENS,,Ensenada Barrio,Puerto Rico,United States
+FAJ,,Fajardo,Puerto Rico,United States
+HUM,,Humacao,Puerto Rico,United States
+JOB,,Jobos,Puerto Rico,United States
+MAY,,Mayaguez,Puerto Rico,United States
+PON,,Ponce,Puerto Rico,United States
+PSE,Ponce-Mercedita Airport,Ponce,Puerto Rico,United States
+SAJ,,San Juan,Puerto Rico,United States
+VQS,Vieques Airport,Vieques,Puerto Rico,United States
+PRO,,Providence,Rhode Island,United States
+PVD,Theodore Francis Green International Airport,Warwick,Rhode Island,United States
+CHL,,Charleston,South Carolina,United States
+CAE,,Columbia,South Carolina,United States
+GEO,,Georgetown,South Carolina,United States
+GSP,,Greenville,South Carolina,United States
+GRR,,Greer,South Carolina,United States
+MYR,,Myrtle Beach,South Carolina,United States
+SPF,Black Hills Airport,Spearfish,South Dakota,United States
+HON,Howes Regional Airport,Huron,South Dakota,United States
+TYS,Mc Ghee Tyson Airport,Alcoa,Tennessee,United States
+MEM,,Memphis,Tennessee,United States
+NSV,,Nashville,Tennessee,United States
+TRI,Tri City Airport,Blountville,Tennessee,United States
+ADS,Addison Airport,Addison,Texas,United States
+ADT,Amistad Dam,Brownsville,Texas,United States
+ANZ,Anzalduas International Bridge,Mission,Texas,United States
+AUS,,Austin,Texas,United States
+BEA,,Beaumont,Texas,United States
+BBP,,Big Bend Park,Texas,United States
+SCC,,Bp Spec Coord. Ctr,Texas,United States
+BTC,,Bp Tactical Unit,Texas,United States
+BOA,Bridge Of Americas,El Paso,Texas,United States
+BRO,,Brownsville,Texas,United States
+CRP,,Corpus Christi,Texas,United States
+DAL,,Dallas,Texas,United States
+DLR,,Del Rio,Texas,United States
+DNA,,Donna,Texas,United States
+EGP,,Eagle Pass,Texas,United States
+ELP,,El Paso,Texas,United States
+FAB,,Fabens,Texas,United States
+FAL,,Falcon Heights,Texas,United States
+FTH,,Fort Hancock,Texas,United States
+AFW,Fort Worth Alliance Airport,Fortworth,Texas,United States
+FPT,,Freeport,Texas,United States
+GAL,,Galveston,Texas,United States
+HLG,,Harlingen,Texas,United States
+HID,,Hidalgo,Texas,United States
+HOU,,Houston,Texas,United States
+SGR,Hull Field/Sugar Land Airport,Sugar Land,Texas,United States
+LLB,Juarez-Lincoln Bridge,Laredo,Texas,United States
+LCB,Laredo Columbia Bridge,Laredo,Texas,United States
+LRN,Laredo North,Laredo,Texas,United States
+LAR,,Laredo,Texas,United States
+LSE,,Los Ebanos,Texas,United States
+IND,,Los Indios,Texas,United States
+LOI,,Los Indios,Texas,United States
+MRS,,Marfa,Texas,United States
+MCA,,Mcallen,Texas,United States
+MAF,ODESSA REGIONAL,Odessa,Texas,United States
+PDN,,Paso Del Norte,Texas,United States
+PBB,Peace Bridge,Buffalo,New York,United States
+PHR,,Pharr,Texas,United States
+PAR,,Port Arthur,Texas,United States
+ISB,,Port Isabel,Texas,United States
+POE,Port Of El Paso,El Paso,Texas,United States
+PRE,,Presidio,Texas,United States
+PGR,,Progreso,Texas,United States
+RIO,,Rio Grande City,Texas,United States
+ROM,,Roma,Texas,United States
+SNA,,San Antonio,Texas,United States
+SNN,,Sanderson,Texas,United States
+VIB,Veteran International Bridge,Brownsville,Texas,United States
+YSL,,Ysleta,Texas,United States
+CHA,,Charlotte Amalie,Virgin Islands,United States
+CHR,,Christiansted,Virgin Islands,United States
+CRU,,Cruz Bay,Virgin Islands,United States
+FRK,,Frederiksted,Virgin Islands,United States
+STT,,St Thomas,Virgin Islands,United States
+LGU,Cache Airport - Logan,Logan,Utah,United States
+SLC,,Salt Lake City,Utah,United States
+CHO,Albemarle - Charlottesville Airport,Albemarle,Virginia,United States
+DAA,Davison AAF,Fairfax,Virginia,United States
+HOP,,Hopewell,Virginia,United States
+HEF,,Manassas,Virginia,United States
+NWN,,Newport,Virginia,United States
+NOR,,Norfolk,Virginia,United States
+RCM,,Richmond,Virginia,United States
+ABS,Alburg Springs - Clarenceville Border Crossing,Alburg,Vermont,United States
+ABG,,Alburg,Vermont,United States
+BEB,,Beebe Plain,Vermont,United States
+BEE,,Beecher Falls,Vermont,United States
+BRG,,Burlington,Vermont,United States
+CNA,,Canaan,Vermont,United States
+DER,Derby Line,Derby,Vermont,United States
+DLV,Derby Line,Derby,Vermont,United States
+ERC,,East Richford,Vermont,United States
+HIG,,Highgate Springs,Vermont,United States
+MOR,Morses Line Border Crossing,Franklin,Vermont,United States
+NPV,,Newport,Vermont,United States
+NRT,,North Troy,Vermont,United States
+NRN,,Norton,Vermont,United States
+PIV,Pinnacle Road - East Pinnacle Border,Richford,Vermont,United States
+RIF,,Richfort,Vermont,United States
+STA,,St Albans,Vermont,United States
+SWB,,Swanton,Vermont,United States
+WBE,,Berkshire,Vermont,United States
+ABE,,Aberdeen,Washington,United States
+ANA,,Anacortes,Washington,United States
+BEL,,Bellingham,Washington,United States
+BLI,,Bellingham,Washington,United States
+BLA,,Blaine,Washington,United States
+BWA,,Boundary,Washington,United States
+CUR,,Curlew,Washington,United States
+DVL,,Danville,Washington,United States
+EVE,,Everett,Washington,United States
+FER,,Ferry,Washington,United States
+FRI,,Friday Harbor,Washington,United States
+FWA,Frontier - Paterson Border Crossing,Northport,Washington,United States
+KLM,,Kalama,Washington,United States
+LAU,,Laurier,Washington,United States
+LON,,Longview,Washington,United States
+MET,,Metaline Falls,Washington,United States
+MWH,Grant County Airport,Moses Lake,Washington,United States
+NEA,,Neah Bay,Washington,United States
+NIG,,Nighthawk,Washington,United States
+OLY,,Olympia,Washington,United States
+ORO,,Oroville,Washington,United States
+PWB,,Pasco,Washington,United States
+PIR,,Point Roberts,Washington,United States
+PNG,,Port Angeles,Washington,United States
+PTO,,Port Townsend,Washington,United States
+SEA,,Seattle,Washington,United States
+SPO,,Spokane,Washington,United States
+SUM,,Sumas,Washington,United States
+TAC,,Tacoma,Washington,United States
+PSC,Tri-Cities Airport,Pasco,Washington,United States
+VAN,,Vancouver,Washington,United States
+AGM,,Algoma,Wisconsin,United States
+BAY,,Bayfield,Wisconsin,United States
+GRB,,Green Bay,Wisconsin,United States
+MNW,,Manitowoc,Wisconsin,United States
+MIL,,Milwaukee,Wisconsin,United States
+MSN,Truax Field/Dane County,Madison,Wisconsin,United States
+CHS,,Charleston,West Virginia,United States
+CLK,,Clarksburg,West Virginia,United States
+BLF,Mercer County Airport,Bluefield,West Virginia,United States
+CSP,,Casper,Wyoming,United States
+CNC,Cannon Corners - Covey Hill Border Crossing,Mooers,New York,United States
+AG0,,Magnolia,Arkansas,United States
+BHM,,Bar Harbor,Maine,United States
+BHX,,Birmingham,Alabama,United States
+CAK,,Akron,Ohio,United States
+FOK,,Suffolk County,New York,United States
+LND,,Lander,Wyoming,United States
+MAR,,Marfa,Texas,United States
+MLI,,Moline,Illinois,United States
+RIV,,Riverside,California,United States
+RME,,Rome,New York,United States
+VNY,,Van Nuys,California,United States
+YUM,,Yuma,Arizona,United States
+FRG,,Suffolk,New York,United States
+HRL,,Harlingen,Texas,United States
+ISP,,Suffolk,New York,United States
+JSJ,,San Juan,Puerto Rico,United States
+BUS,,Buffalo,New York,United States
+IAG,,Niagara Falls,New York,United States
+PHN,,Port Huron,Michigan,United States
+STN,,Santa Teresa,New Mexico,United States
+VMB,,Van Buren,Maine,United States
+T01,,Seattle,Washington,United States
+GTF,,International Falls,Minnesota,United States
+INL,,International Falls,Minnesota,United States
+XXX,NOT REPORTED/UNKNOWN,NOT REPORTED/UNKNOWN,NOT REPORTED/UNKNOWN,NOT REPORTED/UNKNOWN
+888,UNIDENTIFED AIR / SEAPORT,UNIDENTIFED AIR / SEAPORT,UNIDENTIFED AIR / SEAPORT,UNIDENTIFED AIR / SEAPORT
+UNK,UNKNOWN POE,UNKNOWN POE,UNKNOWN POE,UNKNOWN POE
