@@ -1,7 +1,7 @@
 import configparser
 import datetime as dt
 import os
-from pyspark.sql import SparkSession
+from pyspark.sql import SparkSession, Row
 from pyspark.sql.window import Window
 import pyspark.sql.functions as F
 import pyspark.sql.types as T
@@ -22,8 +22,7 @@ Used to create a new sparksession
 def create_spark_session():
     spark = SparkSession \
         .builder \
-        .config("spark.jars.packages", "org.apache.hadoop:hadoop-aws:2.7.0") \
-        .config("spark.jars.packages","saurfang:spark-sas7bdat:2.0.0-s_2.11")\
+        .config("spark.jars.packages", "org.apache.hadoop:hadoop-aws:2.7.0","saurfang:spark-sas7bdat:3.0.0-s_2.11")\
         .enableHiveSupport()\
         .getOrCreate()
     return spark
@@ -51,10 +50,10 @@ def process_dimension_data(spark, input_bucket, output_data):
     
     # Merge them using the conditions so that I94ports 
     # location airports are only filtered
-    cond = [df_apc.locality==df_apd.municipalityE, \
-            df_apc.province==df_apd.state, \
-            df_apc.territory==df_apd.country]
-    df_airports_apc = df_apd.join(F.broadcast(df_apc), cond, "inner")
+    cond = [df_apc.locality==df_airports.municipalityE, \
+            df_apc.province==df_airports.state, \
+            df_apc.territory==df_airports.country]
+    df_airports_apc = df_airports.join(F.broadcast(df_apc), cond, "inner")
     
     # airports table
     airports_table = df_airports_apc.select('ident', 'type', 'elevation_ft', \
@@ -86,12 +85,14 @@ def process_dimension_data(spark, input_bucket, output_data):
     df_cd_apc = df_cd.join(F.broadcast(df_apc), cond, "inner")
     
     # cities_demo_table
-    cities_demo_table = df_cd_apc.select("City", "State", "territory", "Median Age", "Male Population", "Female Population", "Total Population", \
-         "Number of Veterans", "Foreign-born", "Average Household Size", "Race", "Count", "Race_percent_by_city",\
-          "Race_rank_by_city", "code")
+    cities_demo_table = df_cd_apc.select("City", "State", "territory", F.col("Median Age").alias("Median_Age") , \
+            F.col("Male Population").alias("Male_Population"), F.col("Female Population").alias("Female_Population"), \
+            F.col("Total Population").alias("Total_Population"), F.col("Number of Veterans").alias("Number_of_Veteranas"), \
+            "Foreign-born", F.col("Average Household Size").alias("Avg_Household_Size"), "Race", "Count", "Race_percent_by_city",\
+            "Race_rank_by_city", "code")
     
     # write cities_demo_table to parquet files partitioned by state
-    cities_demo_table.write.parquet(output_data+'airports', partitionBy=['state'])
+    cities_demo_table.write.parquet(output_data+'cities_demo', partitionBy=['state'])
 
 '''
 process_facts_data():
@@ -104,7 +105,7 @@ def process_facts_data(spark, input_data, input_bucket, output_data):
     I94_data = input_data
 
     # read I94 immigration data file
-    df_I94 =spark.read.format('com.github.saurfang.sas.spark').load('input_data')
+    df_I94 =spark.read.format('com.github.saurfang.sas.spark').load(input_data)
     
     # get datetime from arrdate and depdate column value
     get_date1 = F.udf(lambda x: (dt.datetime(1960, 1, 1).date() + dt.timedelta(x)).isoformat() if x else None, T.StringType())
@@ -113,7 +114,7 @@ def process_facts_data(spark, input_data, input_bucket, output_data):
     df_I94 = df_I94.withColumn('iso_depdate', get_date1(F.col('depdate')))
     
     # get datetime from duedate column value
-    get_date2 = F.udf(lambda x: x[4:]+'-'+x[:2]+'-'+x[2:4], T.StringType())
+    get_date2 = F.udf(lambda x: x[4:]+'-'+x[:2]+'-'+x[2:4] if x, T.StringType())
     
     # get datetime from duedate column value
     df_I94 = df_I94.withColumn('iso_duedate', get_date2(F.col('dtaddto')))
@@ -142,8 +143,11 @@ def process_facts_data(spark, input_data, input_bucket, output_data):
     I94_table = df_I94.select('cicid', 'i94yr', 'i94mon', 'i94cit', 'i94res', 'i94port', 'iso_arrdate', 'iso_depdate', 'iso_duedate', \
                  'i94_visa', 'i94_mode', 'admnum', 'insnum', 'i94addr_US_state', 'airline', 'fltno', 'visatype', 'i94bir', 'gender')
     
-    # write I94_table to parquet files partitioned by state
-    cities_demo_table.write.parquet(output_data+'airports', partitionBy=['i94addr_US_state'])
+    I94_table = I94_table.dropna(subset="i94port")
+
+    # write I94_table to parquet files partitioned by yr, mon, port
+    I94_table.write.mode('overwrite').parquet(output_data+'I94_data', partitionBy=['i94yr','i94mon','i94port'])
+
     
     
 '''
@@ -158,8 +162,8 @@ def main():
     output_data = "s3://us-immigration-dl/" 
     input_data = "s3a://us-immigration-cleaned-data/i94_apr16_sub.sas7bdat" 
     
-    process_song_data(spark, input_bucket, output_data)    
-    process_log_data(spark, input_data, input_bucket, output_data)
+    process_dimension_data(spark, input_bucket, output_data)    
+    process_facts_data(spark, input_data, input_bucket, output_data)
 
 
 if __name__ == "__main__":
