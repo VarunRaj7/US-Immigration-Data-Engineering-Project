@@ -59,8 +59,7 @@ def process_dimension_data(spark, input_bucket, output_data):
     airports_table = df_airports_apc.select('ident', 'type', 'elevation_ft', \
                                       'continent', 'gps_code', 'iata_code', \
                                       'local_code', 'coordinates',\
-                                      'nameL', 'municipalityL', 'nameE', \
-                                      'locality', 'province', 'country', 'code')
+                                      'nameL', 'municipalityL', 'code')
     
     # write airports table to parquet files partitioned by province
     airports_table.write.parquet(output_data+'airports', partitionBy=['province'])
@@ -85,7 +84,7 @@ def process_dimension_data(spark, input_bucket, output_data):
     df_cd_apc = df_cd.join(F.broadcast(df_apc), cond, "inner")
     
     # cities_demo_table
-    cities_demo_table = df_cd_apc.select("City", "State", "territory", F.col("Median Age").alias("Median_Age") , \
+    cities_demo_table = df_cd_apc.select(F.col("Median Age").alias("Median_Age") , \
             F.col("Male Population").alias("Male_Population"), F.col("Female Population").alias("Female_Population"), \
             F.col("Total Population").alias("Total_Population"), F.col("Number of Veterans").alias("Number_of_Veteranas"), \
             "Foreign-born", F.col("Average Household Size").alias("Avg_Household_Size"), "Race", "Count", "Race_percent_by_city",\
