@@ -342,6 +342,12 @@ The end goal is to combine the I94 data with the ports and port of entry cities 
 
 **Sample Queries**
 
+Refer to the I94 immigration analytics for a sample query case. The results are shown below:
+
+<div align='center'>
+<img src="/Images/Project Analytics-1.png" height="400" width="400">
+</div>
+
 **Why this data model?**
 
 This **Star schema** data model is quick to understand and run queries by the business teams to derive insights.
@@ -360,3 +366,4 @@ Schedule a Spark Job via Airflow daily by 7am.
 
 What if the database needed to be accessed by 100+ people?
 Create an appropriate policies for different user groups to read the objects in the S3 bucket.
+
