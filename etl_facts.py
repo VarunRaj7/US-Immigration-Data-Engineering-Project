@@ -85,6 +85,22 @@ def process_facts_data(spark, input_data, input_bucket, output_data):
 
     
     
+def quality_check_facts(spark, output_data):
+    
+    try:
+        
+        df_i94 = spark.read.parquet(output_data+'I94_data/')
+      
+    except:
+        
+        print("Failed to read the facts data")
+        
+    
+    if df_i94.count==0:
+        print("Failed the data quality check")
+        
+        
+    
 '''
 main():
 The main function.
@@ -98,6 +114,8 @@ def main():
     input_data = "s3a://us-immigration-cleaned-data/i94_apr16_sub.sas7bdat" 
     
     process_facts_data(spark, input_data, input_bucket, output_data)
+    
+    quality_check_facts(spark, output_data)
 
 
 if __name__ == "__main__":

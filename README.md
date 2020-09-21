@@ -265,6 +265,11 @@ Port of entries code table:
 - province => state/province
 - territory => country
 
+Countries_table:
+
+- cit_res_code => 3 digit country code
+- country
+
 Airports Table:
 
 - code => 3 letter i94 port of entry code
@@ -322,7 +327,7 @@ $ spark-submit --master yarn \
 >> --conf spark.dynamicAllocation.enabled=true \
 >> --conf spark.dynamicAllocation.minExecutors=1 \
 >> --packages saurfang:spark-sas7bdat:3.0.0-s_2.11
->> etl.py
+>> etl_<file>.py
 ```
 
 #### Discussions

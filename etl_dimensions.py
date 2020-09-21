@@ -62,7 +62,7 @@ def process_dimension_data(spark, input_bucket, output_data):
                                       'nameL', 'municipalityL', 'code')
     
     # write airports table to parquet file
-    airports_table.write.parquet(output_data+'airports', partitionBy=[''])
+    airports_table.write.parquet(output_data+'airports')
     
     # get filepath to cities demographics data file
     cities_demo_data = input_bucket+'us-cities-demographics.csv'
@@ -94,6 +94,22 @@ def process_dimension_data(spark, input_bucket, output_data):
     cities_demo_table.write.parquet(output_data+'cities_demo')
     
     
+def quality_check_dim(spark, output_data):
+    
+    try:
+        
+        df_airports = spark.read.parquet(output_data+'airports')
+    
+        df_cities_demo = spark.read.parquet(output_data+'cities_demo')
+    
+    except:
+        print("Failed to read the dimension data")
+        
+    
+    if df_airports.count==0 or df_cities_demo.count()==0:
+        print("Failed the data quality check")
+        
+        
 '''
 main():
 The main function.
@@ -106,7 +122,8 @@ def main():
     output_data = "s3://us-immigration-dl/" 
     input_data = "s3a://us-immigration-cleaned-data/i94_apr16_sub.sas7bdat" 
     
-    process_dimension_data(spark, input_bucket, output_data)    
+    process_dimension_data(spark, input_bucket, output_data)
+    quality_check_dim(spark, output_data)
 
 
 if __name__ == "__main__":
