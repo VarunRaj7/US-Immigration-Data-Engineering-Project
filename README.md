@@ -295,7 +295,7 @@ Cities Table:
 - Race_rank_by_city
 
 <div align='center'>
-<img src="/Images/Project Data Modeling.png" height="400" width="400">
+<img src="/Images/Project Data Modeling.png" height="600" width="600">
 </div>
 
 **Data Model Discussions**
