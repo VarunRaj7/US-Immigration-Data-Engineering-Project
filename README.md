@@ -345,7 +345,7 @@ The end goal is to combine the I94 data with the ports and port of entry cities 
 Refer to the I94 immigration analytics for a sample query case. The results are shown below:
 
 <div align='center'>
-<img src="/Images/Project Analytics-1.png" height="400" width="400">
+<img src="/Images/Project Analytics-1.png" height="400" width="800">
 </div>
 
 **Why this data model?**
