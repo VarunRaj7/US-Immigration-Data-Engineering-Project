@@ -342,7 +342,7 @@ The end goal is to combine the I94 data with the ports and port of entry cities 
 
 **Sample Queries**
 
-Refer to the I94 immigration analytics for a sample query case. The results are shown below:
+Refer to the I94 immigration analytics for a sample query case. The results are shown below for the preferences of POE by the Asian people given the asian population at POE:
 
 <div align='center'>
 <img src="/Images/Project Analytics-1.png" height="400" width="800">
@@ -359,11 +359,14 @@ Whenever a new port of entry code is added in the I94 immigration data it should
 **Scaling?**
 
 What if the I94 Immigration data scales up by 100x?
+
 Increase the size of the cluster appropriately, and perform the ETL process. The ETL process is scalable as it contains mainly the broadcast join only. 
 
 What if the pipelines were run on a daily basis by 7am?
+
 Schedule a Spark Job via Airflow daily by 7am.
 
 What if the database needed to be accessed by 100+ people?
+
 Create an appropriate policies for different user groups to read the objects in the S3 bucket.
 
